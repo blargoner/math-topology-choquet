@@ -1,0 +1,73 @@
+% Notes and exercises from Topology by Choquet
+% By John Peloquin
+\documentclass[letterpaper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,fourier,enumitem}
+
+\newcommand{\B}{\mathcal{B}}
+
+\newcommand{\union}{\cup}
+\newcommand{\sect}{\cap}
+
+\newcommand{\closure}[1]{\overline{#1}}
+
+% Theorems
+\theoremstyle{definition}
+\newtheorem*{exer}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+
+% Meta
+\title{Notes and exercises from \emph{Topology}}
+\author{John Peloquin}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Introduction}
+This document contains notes and exercises from~\cite{choquet}.
+
+\section*{Chapter~I}
+\subsection*{Section~8}
+\begin{rmk}
+Let \(X\)~be a set, \(\B\)~a filter base on~\(X\), and \(Y\)~a separated topological space. If \(f:X\to Y\) and \(\lim_{\B}f=b\), then \(b\)~is the only adherent value of~\(f\) along~\(\B\).
+\end{rmk}
+\begin{proof}
+First, \(b\)~is an adherent value of~\(f\) along~\(\B\). If \(V\)~is a neighborhood of~\(b\), then by assumption there is \(B\in\B\) with \(f(B)\subset V\). For any \(B'\in\B\), there is \(B''\in\B\) with \(B''\subset B\sect B'\) and hence
+\[f(B'')\subset f(B\sect B')\subset f(B)\sect f(B')\subset V\sect f(B')\]
+Since \(B''\neq\emptyset\), it follows that \(V\sect f(B')\ne\emptyset\).
+
+Second, if \(b'\ne b\), there are neighborhoods \(V',V\) of \(b',b\) with \(V'\sect V=\emptyset\). By assumption, there is \(B\in\B\) with \(f(B)\subset V\), so \(V'\sect f(B)=\emptyset\) and \(b'\not\in\closure{f(B)}\). It follows that \(b'\)~is not an adherent value of~\(f\) along~\(\B\).
+\end{proof}
+
+\subsection*{Section~10}
+\begin{rmk}
+Let \(E\)~be a set, \(\B\)~a filter base on~\(E\), and \(F=F_1\times\cdots\times F_n\) a topological product space. If \(f=(f_i):E\to F\) and \(l=(l_i)\in F\), then \(\lim_{\B}f=l\) if and only if \(\lim_{\B}f_i=l_i\) for all~\(i\).
+\end{rmk}
+\begin{proof}
+If \(\lim_{\B}f=l\) and \(\omega_i\)~is an open neighborhood of~\(l_i\) in~\(F_i\), then
+\[\omega=F_1\times\cdots\times F_{i-1}\times\omega_i\times F_{i+1}\times\cdots\times F_n\]
+is an open neighborhood of~\(l\) in~\(F\), so there is \(B\in\B\) with \(f(B)\subset\omega\) and hence \(f_i(B)\subset\omega_i\). It follows that \(\lim_{\B}f_i=l_i\).
+
+Conversely, suppose \(\lim_{\B}f_i=l_i\) for all~\(i\). If \(V\)~is a neighborhood of~\(l\) in~\(F\), then there is an elementary open neighborhood \(\omega=\omega_1\times\cdots\times\omega_n\) of~\(l\) in~\(V\). Now \(\omega_i\)~is an open neighborhood of~\(l_i\) in~\(F_i\), so there is \(B_i\in\B\) with \(f_i(B_i)\subset\omega_i\) for all~\(i\). Finally, there is \(B\in\B\) with \(B\subset B_1\sect\cdots\sect B_n\), so \(f(B)\subset\omega\subset V\). It follows that \(\lim_{\B}f=l\).
+\end{proof}
+
+\subsection*{Section~11}
+\begin{rmk}
+Let \(X\)~be a set, \(\B\)~a filter base on~\(X\), and \(E\)~a compact topological space. If \(f:X\to E\), then \(f\)~has an adherent value along~\(\B\). Moreover, if \(l\)~is the only adherent value, then \(\lim_{\B}f=l\).
+\end{rmk}
+\begin{proof}
+The family \(\{\,\closure{f(B)}\mid B\in\B\,\}\) has the finite intersection property, so has nonempty intersection by compactness of~\(E\).
+
+If \(V\)~is an open neighborhood of~\(l\), then the family
+\[\{\,\closure{f(B)}\sect\complement V\mid B\in\B\,\}\]
+has empty intersection. By compactness of~\(E\), there is a finite subfamily with empty intersection. It follows that there is \(B\in\B\) with \(f(B)\sect\complement V=\emptyset\), that is \(f(B)\subset V\). Therefore \(\lim_{\B}f=l\).
+\end{proof}
+
+% References
+\newpage
+\begin{thebibliography}{0}
+\bibitem{choquet} Choquet, G. \textit{Topology}. Academic Press, 1966.
+\end{thebibliography}
+\end{document}
