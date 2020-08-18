@@ -3,6 +3,7 @@
 \documentclass[letterpaper,12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,fourier,enumitem}
 
+\newcommand{\R}{\mathbb{R}}
 \newcommand{\B}{\mathcal{B}}
 
 \newcommand{\union}{\cup}
@@ -63,6 +64,30 @@ The family \(\{\,\closure{f(B)}\mid B\in\B\,\}\) has the finite intersection pro
 If \(V\)~is an open neighborhood of~\(l\), then the family
 \[\{\,\closure{f(B)}\sect\complement V\mid B\in\B\,\}\]
 has empty intersection. By compactness of~\(E\), there is a finite subfamily with empty intersection. It follows that there is \(B\in\B\) with \(f(B)\sect\complement V=\emptyset\), that is \(f(B)\subset V\). Therefore \(\lim_{\B}f=l\).
+\end{proof}
+
+\subsection*{Section~12}
+\begin{rmk}
+Let \(E\)~be a separated topological space which is not compact. Then the family
+\[\B=\{\,B\subset E\mid\complement B\text{ is compact}\,\}\]
+is a filter base on~\(E\).
+\end{rmk}
+\begin{proof}
+If \(B_1,B_2\in\B\), then
+\[\complement(B_1\sect B_2)=(\complement B_1)\union(\complement B_2)\]
+is compact (11.14), so \(B_1\sect B_2\in\B\). Finally, \(\emptyset\not\in\B\) since \(E\)~is not compact.
+\end{proof}
+\begin{rmk}
+Since compact sets are topologically ``finite'', this filter base allows us to take limits as ``\(x\to\infty\)'' in~\(E\).
+\end{rmk}
+
+\begin{rmk}
+Let \(E\)~be a locally compact topological space which is not compact. If \(f:E\to\R\) is continuous and \(\lim_{x\to\infty}f(x)=l\in\R\), then \(f\)~is bounded. Moreover, \(f\)~attains its bounds which are distinct from~\(l\).
+\end{rmk}
+\begin{proof}
+By assumption, there is \(K\subset E\) compact with \(l-1<f(x)<l+1\) for \(x\not\in K\). On the other hand, \(f\)~is continuous on~\(K\) (9.5), and hence bounded on~\(K\) (11.17), so \(f\)~is bounded on~\(E\).
+
+Let \(s=\sup_E f\). If \(l\ne s\) then \(l<s\), and by assumption there is \(K\subset E\) compact with \(f(x)<(l+s)/2\) for \(x\not\in K\). It follows that \(s=\sup_K f\), so \(f(x)=s\) for some \(x\in K\) (11.17). Similarly for~\(\inf_E f\).
 \end{proof}
 
 % References
