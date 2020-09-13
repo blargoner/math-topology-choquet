@@ -10,6 +10,7 @@
 \newcommand{\sect}{\cap}
 
 \newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\inv}[1]{#1^{-1}}
 
 % Theorems
 \theoremstyle{definition}
@@ -89,6 +90,17 @@ By assumption, there is \(K\subset E\) compact with \(l-1<f(x)<l+1\) for \(x\not
 
 Let \(s=\sup_E f\). If \(l\ne s\) then \(l<s\), and by assumption there is \(K\subset E\) compact with \(f(x)<(l+s)/2\) for \(x\not\in K\). It follows that \(s=\sup_K f\), so \(f(x)=s\) for some \(x\in K\) (11.17). Similarly for~\(\inf_E f\).
 \end{proof}
+
+\subsection*{Section~14}
+\begin{rmk}
+If \(G\)~is a topological group and \(V\)~is a neighborhood of the unit \(e\in G\), then \(A\subset G\) is small of order~\(V\) if and only if \(A\inv{A}\subset V\).
+\end{rmk}
+
+\begin{rmk}
+If \(G\)~is an additive (commutative) topological group, to see that \(x\mapsto -x\) is uniformly continuous it suffices to observe that if \(V\)~is a neighborhood of \(0\in G\) and \(A\subset G\) is small of order~\(V\), then \(-A\)~is also small of order~\(V\) since
+\[-A-(-A)=-A+A=A-A\subset V\]
+This does not require \(V\)~to be symmetric.
+\end{rmk}
 
 % References
 \newpage
